@@ -144,9 +144,9 @@
       <h1>🧠 Sebelum masuk test dulu</h1>
       <p>Kalau sampe salah sih parah</p>
       <p><b>warna kesukaan ku?</b></p>
-      <button onclick="failQuiz()">biru muda</button>
+      <button onclick="passQuiz()">biru muda</button>
       <button onclick="failQuiz()">biru</button>
-      <button onclick="passQuiz()">biru tua</button>
+      <button onclick="failQuiz ()">biru tua</button>
       <button class="alt" onclick="next(4)">
         yang bener ini mau skip?, ga mau nyoba dulu?
       </button>
@@ -364,11 +364,11 @@
       }
 
       function failQuiz() {
-        alert("yah… yaudah masuk sih, kasian");
+        alert("ih kok salah, parah sih, yaudah sok masuk 😒");
         next(4);
       }
       function passQuiz() {
-        alert("ok kamu lulus 😌");
+        alert("asek tau ternyata 😋");
         next(4);
       }
 
