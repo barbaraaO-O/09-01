@@ -123,7 +123,7 @@
   <body>
     <!-- 1 LOGIN -->
     <div class="card" id="login">
-      <h1>🔒 Login</h1>
+      <h1>🔒 Login duluu yaa</h1>
       <p>password = jam pap pertama</p>
       <p>hint = 12 Desember 2025</p>
       <input id="pw" placeholder="contoh: 22.47" />
@@ -133,7 +133,7 @@
 
     <!-- 2 LOADING -->
     <div class="card hidden" id="loading">
-      <h1>⏳ Membuka Kenangan</h1>
+      <h1>⏳ Loading</h1>
       <p id="loadText">sebentar ya…</p>
       <div class="progress"><div class="bar" id="bar"></div></div>
       <p class="small" id="percent">0%</p>
@@ -141,13 +141,15 @@
 
     <!-- 3 QUIZ -->
     <div class="card hidden" id="quiz">
-      <h1>🧠 Tes Receh</h1>
-      <p>lo mau masuk cepat atau buktiin?</p>
-      <p><b>warna kesukaan gue?</b></p>
-      <button onclick="failQuiz()">mantan</button>
+      <h1>🧠 Tes soal aku</h1>
+      <p>Kalau sampe salah sih parah</p>
+      <p><b>warna kesukaan ku?</b></p>
+      <button onclick="failQuiz()">biru muda</button>
       <button onclick="failQuiz()">biru</button>
-      <button onclick="passQuiz()">yang kamu tau</button>
-      <button class="alt" onclick="next(4)">skip aja, kasian</button>
+      <button onclick="passQuiz()">biru tua</button>
+      <button class="alt" onclick="next(4)">
+        yang bener ini mau skip?, ga mau nyoba dulu?
+      </button>
     </div>
 
     <!-- 4 KENANGAN -->
@@ -178,7 +180,7 @@
         <h3>The most iconic date(?)</h3>
         <p>
           menurutt kuu inii sihh yang paling memorable selama kita ketemu
-          mweheheh,<br />
+          mweheheh.<br />
           btw ganteng, sayang kalau ga digoda, kiw kiw 🤭
         </p>
       </div>
@@ -190,10 +192,14 @@
     <!-- 5 CHARACTER -->
     <div class="card hidden" id="p5">
       <h1>🧍‍♂️ Character Mode</h1>
-      <button onclick="alert('kamu lagi lucu. +10 charm ✨')">
+      <button
+        onclick="alert('kamu tuh jujur aga perhatian, mentally mature, kalau kata gen alpha +1000 aura')"
+      >
         versi lucu
       </button>
-      <button onclick="alert('kamu manyun. critical hit ke aku 💔')">
+      <button
+        onclick="alert('ngga ada sih, atau emng belum ketauan aja ya 🤔')"
+      >
         versi ngeselin
       </button>
       <button class="alt" onclick="next(6)">lanjut</button>
@@ -201,19 +207,43 @@
 
     <!-- 6 CHAT -->
     <div class="card hidden" id="p6">
-      <h1>💬 Chat Palsu</h1>
+      <h1>💬 Pesan dari aku</h1>
       <div class="chat">selamat ulang tahun ya</div>
-      <div class="chat">gue bikin ini sambil mikir kok effort amat</div>
-      <div class="chat">tapi gapapa sih</div>
-      <p class="small">scroll lagi</p>
-      <button onclick="next(11)">lanjut</button>
+      <div class="chat">Semoga dengan bertambahnya umur, semakin sabar</div>
+      <div class="chat">sabar menghadapi murid murid yg ngeselin</div>
+      <div class="chat">untung aku ngga ngeselin</div>
+      <div class="chat">yaaa kann???</div>
+      <p class="small">lanjutttt 👇🏻</p>
+      <button onclick="next(11)">GASKANNNN</button>
     </div>
 
     <!-- 7 KADO -->
     <div class="card hidden" id="p7">
-      <h1>🎁 Hadiah</h1>
-      <button onclick="alert('hadiahnya aku 😌')">klik buat hadiah</button>
-      <button class="alt" onclick="next(8)">lanjut</button>
+      <h1>🎁 Pilih Hadiah</h1>
+      <p class="small">pilih satu yaa</p>
+
+      <button onclick="openGift()">🎧 Playlist</button>
+      <button onclick="openGift()">📸 Foto</button>
+      <button onclick="openGift()">💌 Pesan</button>
+    </div>
+    <div class="card hidden" id="giftReveal">
+      <p>sebener nya mau pilih apa aja percuma 😋</p>
+      <p><b>soalnya yang aku suka tuh</b></p>
+    </div>
+    <div
+      class="card hidden"
+      id="giftFinal"
+      style="
+        background: black;
+        color: white;
+        min-height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-size: 1.5rem;
+      "
+    >
+      mwehehehhee
     </div>
 
     <!-- 8 COUNTDOWN -->
@@ -409,6 +439,27 @@
           .forEach((c) => c.classList.add("hidden"));
 
         document.getElementById("login").classList.remove("hidden");
+      }
+
+      function openGift() {
+        nextCustom("giftReveal");
+
+        setTimeout(() => {
+          nextCustom("giftFinal");
+          document.body.style.background = "black";
+        }, 2200);
+
+        setTimeout(() => {
+          document.body.style.background = "#ffeef3";
+          next(8); // lanjut ke countdown
+        }, 4200);
+      }
+
+      function nextCustom(id) {
+        document
+          .querySelectorAll(".card")
+          .forEach((c) => c.classList.add("hidden"));
+        document.getElementById(id).classList.remove("hidden");
       }
     </script>
   </body>
