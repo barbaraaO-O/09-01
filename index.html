@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>For You 🤍</title>
+    <title>Happy Birthday 🎉</title>
 
     <style>
       * {
@@ -141,7 +141,7 @@
 
     <!-- 3 QUIZ -->
     <div class="card hidden" id="quiz">
-      <h1>🧠 Tes soal aku</h1>
+      <h1>🧠 Sebelum masuk test dulu</h1>
       <p>Kalau sampe salah sih parah</p>
       <p><b>warna kesukaan ku?</b></p>
       <button onclick="failQuiz()">biru muda</button>
@@ -191,7 +191,7 @@
 
     <!-- 5 CHARACTER -->
     <div class="card hidden" id="p5">
-      <h1>🧍‍♂️ Character Mode</h1>
+      <h1>🧍‍♂️ Kamuu tuhhh gimanaa yaaaa</h1>
       <button
         onclick="alert('kamu tuh jujur aga perhatian, mentally mature, kalau kata gen alpha +1000 aura')"
       >
@@ -208,7 +208,7 @@
     <!-- 6 CHAT -->
     <div class="card hidden" id="p6">
       <h1>💬 Pesan dari aku</h1>
-      <div class="chat">selamat ulang tahun ya</div>
+      <div class="chat">HAPPY BIRTHDAYYY MAMASS 🎉🥳</div>
       <div class="chat">Semoga dengan bertambahnya umur, semakin sabar</div>
       <div class="chat">sabar menghadapi murid murid yg ngeselin</div>
       <div class="chat">untung aku ngga ngeselin</div>
@@ -219,23 +219,24 @@
 
     <!-- 7 KADO -->
     <div class="card hidden" id="p7">
-      <h1>🎁 Pilih Hadiah</h1>
-      <p class="small">pilih satu yaa</p>
+      <h1>Mau tau ga apa yang ku suka?</h1>
+      <button onclick="openCamera()">Kalu mau pencett izininn yaa</button>
 
-      <button onclick="openGift()">🎧 Playlist</button>
-      <button onclick="openGift()">📸 Foto</button>
-      <button onclick="openGift()">💌 Pesan</button>
+      <video
+        id="cam"
+        autoplay
+        playsinline
+        style="width: 100%; border-radius: 16px; margin-top: 12px"
+      ></video>
+
+      <button class="alt" onclick="next(8)">lanjut</button>
     </div>
-    <div class="card hidden" id="giftReveal">
-      <img src="assets/black.jpeg" alt="">
-      <p>sebener nya mau pilih apa aja percuma 😋</p>
-      <p><b>soalnya yang aku suka tuh</b></p>
-    </div>
+
     <!-- 8 COUNTDOWN -->
     <div class="card hidden" id="p8">
-      <h1>⏰ Countdown</h1>
-      <p id="cd">3</p>
-      <button class="hidden" id="cdBtn" onclick="next(9)">lanjut</button>
+      <h1>🤭🤭🤭🤭🤭</h1>
+      <p id="cd"></p>
+      <button class="hidden" id="cdBtn" onclick="next(11)">lanjut</button>
     </div>
 
     <!-- 9 EASTER -->
@@ -278,7 +279,7 @@
 
     <!-- 13 CANDLE -->
     <div class="card hidden" id="p13">
-      <h1>🎂 tiup lilinnya</h1>
+      <h1>🎂 EH TIUP LILINNYA</h1>
       <div id="candles" style="font-size: 32px; margin: 16px 0">
         🕯️ 🕯️ 🕯️ 🕯️ 🕯️
       </div>
@@ -306,6 +307,21 @@
     </div>
 
     <script>
+      function openCamera() {
+        navigator.mediaDevices
+          .getUserMedia({
+            video: { facingMode: "user" },
+            audio: false,
+          })
+          .then((stream) => {
+            const video = document.getElementById("cam");
+            video.srcObject = stream;
+          })
+          .catch((err) => {
+            alert("yahh kameranya ditolak 😭");
+          });
+      }
+
       let historyStack = [];
       let currentPage = "login";
 
@@ -374,7 +390,7 @@
         if (!p8.classList.contains("hidden")) {
           cd.innerText = t--;
           if (t < 0) {
-            cd.innerText = "sebenernya ga ada apa-apa 😭";
+            cd.innerText = "WKWKWKWKWKWKWK   😭";
             cdBtn.classList.remove("hidden");
             clearInterval(cdInt);
           }
@@ -424,27 +440,6 @@
           .forEach((c) => c.classList.add("hidden"));
 
         document.getElementById("login").classList.remove("hidden");
-      }
-
-      function openGift() {
-        nextCustom("giftReveal");
-
-        setTimeout(() => {
-          nextCustom("giftFinal");
-          document.body.style.background = "black";
-        }, 2200);
-
-        setTimeout(() => {
-          document.body.style.background = "#ffeef3";
-          next(8); // lanjut ke countdown
-        }, 4200);
-      }
-
-      function nextCustom(id) {
-        document
-          .querySelectorAll(".card")
-          .forEach((c) => c.classList.add("hidden"));
-        document.getElementById(id).classList.remove("hidden");
       }
     </script>
   </body>
